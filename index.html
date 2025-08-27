@@ -8,83 +8,125 @@
 <link href="https://fonts.googleapis.com/css2?family=Forum&family=Inter:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 :root {
-  --bg:#C9D0D7;
+  --bg:#C9D1D8;
   --bg-soft:#EEF1F4;
   --ink:#2B2B2B;
-  --muted:#6B7076;
+  --muted:#6F7880;
   --line:#B8C0C7;
   --accent:#B9867B;
-  --accent-2:#A06F65;
+  --accent-hover:#9F6F65;
 }
 html { scroll-behavior: smooth; }
-body { font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); }
-h1,h2,h3,h4,h5,h6 { font-family:'Forum',serif; letter-spacing:.05em; }
-.btn-accent { background:var(--accent); color:#fff; }
-.btn-accent:hover,.btn-accent:focus { background:var(--accent-2); color:#fff; }
-.logo-circle { width:60px; height:60px; border:2px solid var(--line); border-radius:50%; display:flex; align-items:center; justify-content:center; font-family:'Forum',serif; }
-section { padding:4rem 0; }
-.navbar-nav .nav-link { color:var(--ink); }
-.navbar-nav .nav-link:hover { color:var(--accent-2); }
-.shadow { box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important; }
+body { font-family:'Inter',system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif; color:var(--ink); background:var(--bg); }
+h1,h2,h3,h4,h5,h6 { font-family:'Forum',serif; letter-spacing:0.4px; }
+.btn-accent {
+  background:var(--accent); color:#fff;
+  border:1px solid rgba(0,0,0,.25);
+  box-shadow:0 6px 12px rgba(0,0,0,.10);
+  padding:12px 24px;
+}
+.btn-accent:hover,.btn-accent:focus { background:var(--accent-hover); color:#fff; }
+.logo-circle {
+  width:44px; height:44px; border:1px solid rgba(0,0,0,.15); border-radius:50%;
+  background:#E3E8ED; font-size:13px; display:flex; align-items:center; justify-content:center;
+  margin-top:8px;
+}
+.text-secondary { color:var(--muted)!important; }
 .text-muted { color:var(--muted)!important; }
+.navbar-nav .nav-link { color:var(--ink); margin-left:1.5rem; }
+.navbar-nav .nav-link:hover { opacity:.7; }
+.shadow { box-shadow:0 .5rem 1rem rgba(0,0,0,.15)!important; }
 .border-top { border-top:1px solid var(--line)!important; }
 .border-start { border-left:1px solid var(--line)!important; }
 @media (min-width:768px){ .border-md-start{ border-left:1px solid var(--line)!important; } }
 .fixed-up { z-index:1030; }
+.img-portrait { box-shadow:0 8px 24px rgba(0,0,0,.15); }
+@media (min-width:1200px){ .img-portrait{ margin-top:-1.5rem; } }
+.service-number {
+  width:24px; height:24px; border-radius:50%; background:#E3E8ED;
+  color:var(--muted); font-size:12px; display:flex; align-items:center; justify-content:center;
+}
+.service-title { font-size:18px; font-weight:500; color:var(--ink); margin-bottom:6px; }
+.service-text { color:var(--muted); font-size:14px; line-height:1.6; max-width:36em; }
+.info-circle {
+  width:20px; height:20px; border-radius:50%; background:#E3E8ED;
+  color:var(--muted); font-size:12px; display:flex; align-items:center; justify-content:center;
+}
+.service-link { color:var(--muted); text-decoration:none; }
+.service-link:hover { color:var(--ink); }
+#hero { background:var(--bg); padding-top:5rem; padding-bottom:2.5rem; border-bottom:1px solid var(--line); }
+@media (max-width:767.98px){ #hero{ padding:2.5rem 0 2rem; } }
+@media (min-width:768px) and (max-width:991.98px){ #hero{ padding:3.5rem 0 2.5rem; } }
+section { padding:5rem 0; }
 </style>
 </head>
 <body id="top">
-<header id="hero" style="background:var(--bg);">
-  <nav class="navbar navbar-expand-md container-xl pt-3">
+<header id="hero">
+  <nav class="navbar navbar-expand-md container-xxl pt-3 pe-4">
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Меню">
       <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse justify-content-end" id="nav">
       <ul class="navbar-nav">
         <li class="nav-item"><a class="nav-link" href="#about">Обо мне</a></li>
-        <li class="nav-item"><a class="nav-link" href="#prices">Услуги</a></li>
+        <li class="nav-item"><a class="nav-link" href="#services">Услуги</a></li>
         <li class="nav-item"><a class="nav-link" href="#contact">Контакты</a></li>
       </ul>
     </div>
   </nav>
-  <div class="container-xl">
-    <div class="row align-items-center g-4 py-5">
-      <div class="col-xl-4">
-        <div class="logo-circle mb-4">EN</div>
-        <h1 class="display-4 mb-3">ЕКАТЕРИНА<br>НИКИФОРОВА</h1>
-        <p class="mb-4">Юридическая поддержка, правовая защита частных лиц и бизнеса</p>
-        <a href="#contact" class="btn btn-accent rounded-pill px-4">Оставить заявку</a>
+  <div class="container-xxl">
+    <div class="row g-4" style="--bs-gutter-x:2.5rem;">
+      <div class="col-sm-12 col-md-6 col-xl-5">
+        <div class="logo-circle mb-3">EN</div>
+        <h1 class="mb-3" style="font-size:3.5rem; line-height:1.1;">ЕКАТЕРИНА<br>НИКИФОРОВА</h1>
+        <p class="mt-4 w-75 text-secondary" style="font-size:17px; line-height:1.55;">Юридическая поддержка, правовая защита частных лиц и бизнеса</p>
+        <a href="#contact" class="btn btn-accent rounded-pill mt-4">Оставить заявку</a>
       </div>
-      <div class="col-xl-4 text-center">
-        <img src="https://picsum.photos/id/1027/520/680" alt="Портрет Екатерины Никифоровой" class="img-fluid shadow">
+      <div class="col-sm-12 col-md-6 col-xl-4 text-center">
+        <img src="https://picsum.photos/id/1027/520/680" alt="Портрет Екатерины Никифоровой" class="img-fluid img-portrait">
       </div>
-      <div class="col-xl-4">
-        <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" fill="currentColor" class="mb-3 text-muted" viewBox="0 0 16 16"><path d="M3.5 11.5a2 2 0 1 1 0-4h1.75V6.75A3.25 3.25 0 0 0 2 3.5v1.75A4.75 4.75 0 0 1 6.75 10h-3.25zm8 0a2 2 0 1 1 0-4h1.75V6.75A3.25 3.25 0 0 0 10 3.5v1.75A4.75 4.75 0 0 1 14.75 10h-3.25z"/></svg>
-        <p class="fs-5">«Помогаю сохранить ваше имущество, нервы и деловую репутацию.»</p>
+      <div class="col-sm-12 col-md-12 col-xl-3">
+        <div class="w-75 ms-xl-4">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" class="mb-3 text-secondary" viewBox="0 0 16 16"><path d="M3.5 11.5a2 2 0 1 1 0-4h1.75V6.75A3.25 3.25 0 0 0 2 3.5v1.75A4.75 4.75 0 0 1 6.75 10h-3.25zm8 0a2 2 0 1 1 0-4h1.75V6.75A3.25 3.25 0 0 0 10 3.5v1.75A4.75 4.75 0 0 1 14.75 10h-3.25z"/></svg>
+          <p class="text-secondary" style="font-size:16px; line-height:1.6;">Помогаю сохранить ваше имущество, нервы и деловую репутацию.</p>
+        </div>
       </div>
     </div>
   </div>
 </header>
-<section style="background:var(--bg-soft);">
-  <div class="container">
-    <h2 class="text-center mb-5">ЧЕМ Я МОГУ ПОМОЧЬ ВАМ</h2>
-    <div class="row g-4 text-center">
+<section id="services" style="background:var(--bg);">
+  <div class="container-xxl">
+    <h2 class="mb-4" style="font-size:2.75rem; line-height:1.2;">ЧЕМ Я МОГУ<br>ПОМОЧЬ ВАМ</h2>
+    <div class="row" style="--bs-gutter-x:2rem; --bs-gutter-y:1.5rem;">
       <div class="col-md-4">
-        <h3 class="h5 mb-3">Консультация</h3>
-        <p class="text-muted">Разъяснение правовой ситуации, подготовка стратегии защиты.</p>
+        <div class="d-flex">
+          <div class="service-number me-2">1</div>
+          <div>
+            <h3 class="service-title">Консультация</h3>
+            <p class="service-text">Разъяснение правовой ситуации, подготовка стратегии защиты.</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <h3 class="h5 mb-3">Сопровождение</h3>
-        <p class="text-muted">Обслуживание управляющих организаций, ТСЖ, ТСН, ЖСК.</p>
+        <div class="d-flex">
+          <div class="service-number me-2">2</div>
+          <div>
+            <h3 class="service-title">Сопровождение</h3>
+            <p class="service-text">Обслуживание управляющих организаций, ТСЖ, ТСН, ЖСК.</p>
+          </div>
+        </div>
       </div>
       <div class="col-md-4">
-        <h3 class="h5 mb-3">Представительство</h3>
-        <p class="text-muted">Защита интересов во всех инстанциях.</p>
+        <div class="d-flex">
+          <div class="service-number me-2">3</div>
+          <div>
+            <h3 class="service-title">Представительство</h3>
+            <p class="service-text">Защита интересов во всех инстанциях.</p>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="text-center mt-4">
-      <a href="#prices" class="btn btn-accent rounded-pill px-4">Посмотреть все услуги</a>
-    </div>
+    <a href="#prices" class="service-link d-inline-flex align-items-center mt-4">Посмотреть все услуги<span class="info-circle ms-2">i</span></a>
   </div>
 </section>
 <section id="about" style="background:var(--bg-soft);">
@@ -127,12 +169,12 @@ section { padding:4rem 0; }
 <section id="prices" style="background:var(--bg-soft);">
   <div class="container">
     <h2 class="text-center mb-5">ЦЕНА И ВСЕ ВИДЫ ОКАЗЫВАЕМЫХ УСЛУГ</h2>
-    <div class="accordion" id="services">
+    <div class="accordion" id="services-accordion">
       <div class="accordion-item">
         <h2 class="accordion-header" id="headingOne">
           <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Юридическая консультация — от 3 500 руб.</button>
         </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#services">
+        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#services-accordion">
           <div class="accordion-body">
             <ul class="mb-0">
               <li>Очная консультация</li>
@@ -145,7 +187,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingTwo">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Юридическое сопровождение управляющей компании, ТСЖ, ЖСК — от 50 000 руб.</button>
         </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#services">
+        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -153,7 +195,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingThree">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Жилищные споры — от 40 000 руб.</button>
         </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#services">
+        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -161,7 +203,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingFour">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Взыскание задолженности — от 45 000 руб. (+10% от суммы удовлетворённых требований)</button>
         </h2>
-        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#services">
+        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -169,7 +211,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingFive">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Защита прав потребителя — от 35 000 руб. (+10%)</button>
         </h2>
-        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#services">
+        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -177,7 +219,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingSix">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Арбитражные споры и дела — от 45 000 руб.</button>
         </h2>
-        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#services">
+        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -185,7 +227,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingSeven">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Договорные споры и дела — от 50 000 руб.</button>
         </h2>
-        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#services">
+        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -193,7 +235,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingEight">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Регистрация и ликвидация юр. лиц / ИП — от 10 000 руб.</button>
         </h2>
-        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#services">
+        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>
@@ -201,7 +243,7 @@ section { padding:4rem 0; }
         <h2 class="accordion-header" id="headingNine">
           <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">Абонентское юридическое обслуживание — от 50 000 руб.</button>
         </h2>
-        <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#services">
+        <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#services-accordion">
           <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
         </div>
       </div>

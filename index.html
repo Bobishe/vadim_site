@@ -1,3 +1,4 @@
+<!-- htmlhint attr-lowercase:false -->
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -75,6 +76,42 @@ section { padding:4rem 0; }
 .about-year{ font-size:18px; line-height:1; text-align:center; }
 .about-year span{ display:block; font-size:12px; color:#8A929A; margin-top:2px; }
 .mission-text{ color:#6F7880; font-size:16px; line-height:1.6; max-width:36em; }
+.quote-banner{ position:relative; background:url('https://picsum.photos/id/1011/1600/420') center/cover no-repeat; height:360px; padding:56px 0; border-bottom:1px solid #DADFE1; margin-bottom:32px; }
+.quote-banner::before{ content:""; position:absolute; inset:0; background:linear-gradient(to left, rgba(0,0,0,.45), transparent); }
+.quote-banner .container{ height:100%; }
+.quote-block{ max-width:520px; text-align:right; }
+.quote-mark{ font-size:30px; line-height:1; display:block; margin-bottom:8px; }
+.quote-text{ color:#fff; font-size:21px; line-height:1.55; margin-bottom:8px; }
+.quote-author{ color:#fff; font-size:12px; opacity:0.85; }
+.prices-section{ background:#F5F6F7; padding:72px 0; }
+@media (max-width:991.98px){ .prices-section{ padding:60px 0; } }
+@media (max-width:575.98px){ .prices-section{ padding:44px 0; } }
+.price-title{ font-size:2.6rem; letter-spacing:0.6px; color:#2B2B2B; text-transform:uppercase; margin-bottom:1.5rem; }
+.services-list .service-item{ border-bottom:1px solid #DADFE1; }
+.services-list .service-item:first-child{ border-top:1px solid #DADFE1; }
+.service-header{ width:100%; background:transparent; border:0; padding:20px 0; display:flex; justify-content:space-between; align-items:flex-start; cursor:pointer; }
+.service-header:hover .service-name,.service-header:hover .service-price{ color:#1F1F1F; }
+.service-header:hover .service-icon{ opacity:0.65; }
+.service-name{ font-size:20px; font-weight:500; line-height:1.45; }
+.service-price{ font-size:16px; line-height:1.45; }
+.service-icon{ margin-left:auto; margin-right:10px; }
+.service-icon::before{ content:'+'; font-size:20px; }
+.service-header:not(.collapsed) .service-icon::before{ content:'×'; }
+.service-body{ padding:14px 0; color:#6F7880; font-size:15px; line-height:1.6; max-width:36em; margin:0; }
+.service-body ul{ padding-left:1rem; margin:0; }
+.service-body li{ margin-bottom:0.25rem; }
+.service-note{ color:#8A929A; }
+@media (max-width:767.98px){
+  .service-header{ padding:16px 0; }
+  .service-name{ font-size:19px; }
+  .service-price{ font-size:15px; }
+  .service-icon{ margin-right:14px; }
+  .service-icon::before{ font-size:22px; }
+  .quote-banner{ height:340px; padding:48px 0; }
+  .quote-text{ font-size:20px; }
+  .quote-mark{ font-size:28px; }
+  .quote-author{ font-size:11px; }
+}
 </style>
 </head>
 <body id="top">
@@ -190,92 +227,162 @@ section { padding:4rem 0; }
     </div>
   </div>
 </section>
-<section style="position:relative;background:url('https://picsum.photos/id/1011/1600/420') center/cover no-repeat;">
-  <div class="position-absolute top-0 start-0 w-100 h-100" style="background:rgba(0,0,0,.5);"></div>
-  <div class="container position-relative text-center text-white py-5">
-    <p class="fs-2 mb-2">«Не стоит переживать — просто доверьтесь, я с вами за одно!»</p>
-    <p class="small fst-italic mb-0">— Екатерина Никифорова</p>
+<section id="quote" class="quote-banner">
+  <div class="container d-flex justify-content-end align-items-center">
+    <div class="quote-block text-white">
+      <span class="quote-mark">«</span>
+      <p class="quote-text mb-2">Не стоит переживать — просто доверьтесь, я с вами за одно!</p>
+      <p class="quote-author fst-italic mb-0">Екатерина Никифорова</p>
+    </div>
   </div>
 </section>
-<section id="prices" style="background:var(--bg-soft);">
+<section id="prices" class="prices-section">
   <div class="container">
-    <h2 class="text-center mb-5">ЦЕНА И ВСЕ ВИДЫ ОКАЗЫВАЕМЫХ УСЛУГ</h2>
-    <div class="accordion" id="services-accordion">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingOne">
-          <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">Юридическая консультация — от 3 500 руб.</button>
-        </h2>
-        <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#services-accordion">
-          <div class="accordion-body">
-            <ul class="mb-0">
+    <h2 class="price-title">ЦЕНА И ВСЕ ВИДЫ ОКАЗЫВАЕМЫХ УСЛУГ</h2>
+    <div id="price-list" class="services-list">
+      <div class="service-item">
+        <button class="service-header d-flex text-start" type="button" data-bs-toggle="collapse" data-bs-target="#price1" aria-expanded="true" aria-controls="price1">
+          <div class="pe-2">
+            <div class="service-name">Юридическая консультация</div>
+            <div class="service-price">от 3&nbsp;500 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price1" class="collapse show" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
               <li>Очная консультация</li>
               <li>Консультация по видеосвязи</li>
             </ul>
           </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingTwo">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Юридическое сопровождение управляющей компании, ТСЖ, ЖСК — от 50 000 руб.</button>
-        </h2>
-        <div id="collapseTwo" class="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price2" aria-expanded="false" aria-controls="price2">
+          <div class="pe-2">
+            <div class="service-name">Юридическое сопровождение управляющей компании, ТСЖ, ЖСК</div>
+            <div class="service-price">от 50&nbsp;000 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price2" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingThree">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">Жилищные споры — от 40 000 руб.</button>
-        </h2>
-        <div id="collapseThree" class="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price3" aria-expanded="false" aria-controls="price3">
+          <div class="pe-2">
+            <div class="service-name">Жилищные споры</div>
+            <div class="service-price">от 40&nbsp;000 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price3" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingFour">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">Взыскание задолженности — от 45 000 руб. (+10% от суммы удовлетворённых требований)</button>
-        </h2>
-        <div id="collapseFour" class="accordion-collapse collapse" aria-labelledby="headingFour" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price4" aria-expanded="false" aria-controls="price4">
+          <div class="pe-2">
+            <div class="service-name">Взыскание задолженности</div>
+            <div class="service-price">от 45&nbsp;000 руб. <span class="service-note">(+10% от суммы удовлетворённых требований)</span></div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price4" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingFive">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">Защита прав потребителя — от 35 000 руб. (+10%)</button>
-        </h2>
-        <div id="collapseFive" class="accordion-collapse collapse" aria-labelledby="headingFive" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price5" aria-expanded="false" aria-controls="price5">
+          <div class="pe-2">
+            <div class="service-name">Защита прав потребителя</div>
+            <div class="service-price">от 35&nbsp;000 руб. <span class="service-note">(+10%)</span></div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price5" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingSix">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">Арбитражные споры и дела — от 45 000 руб.</button>
-        </h2>
-        <div id="collapseSix" class="accordion-collapse collapse" aria-labelledby="headingSix" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price6" aria-expanded="false" aria-controls="price6">
+          <div class="pe-2">
+            <div class="service-name">Арбитражные споры и дела</div>
+            <div class="service-price">от 45&nbsp;000 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price6" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingSeven">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">Договорные споры и дела — от 50 000 руб.</button>
-        </h2>
-        <div id="collapseSeven" class="accordion-collapse collapse" aria-labelledby="headingSeven" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price7" aria-expanded="false" aria-controls="price7">
+          <div class="pe-2">
+            <div class="service-name">Договорные споры и дела</div>
+            <div class="service-price">от 50&nbsp;000 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price7" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingEight">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">Регистрация и ликвидация юр. лиц / ИП — от 10 000 руб.</button>
-        </h2>
-        <div id="collapseEight" class="accordion-collapse collapse" aria-labelledby="headingEight" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price8" aria-expanded="false" aria-controls="price8">
+          <div class="pe-2">
+            <div class="service-name">Регистрация и ликвидация юр. лиц / ИП</div>
+            <div class="service-price">от 10&nbsp;000 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price8" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingNine">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseNine" aria-expanded="false" aria-controls="collapseNine">Абонентское юридическое обслуживание — от 50 000 руб.</button>
-        </h2>
-        <div id="collapseNine" class="accordion-collapse collapse" aria-labelledby="headingNine" data-bs-parent="#services-accordion">
-          <div class="accordion-body">Стоимость указана ориентировочно и зависит от объема работ.</div>
+      <div class="service-item">
+        <button class="service-header d-flex text-start collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#price9" aria-expanded="false" aria-controls="price9">
+          <div class="pe-2">
+            <div class="service-name">Абонентское юридическое обслуживание</div>
+            <div class="service-price">от 50&nbsp;000 руб.</div>
+          </div>
+          <span class="service-icon"></span>
+        </button>
+        <div id="price9" class="collapse" data-bs-parent="#price-list">
+          <div class="service-body">
+            <ul>
+              <li>Стоимость указана ориентировочно и зависит от объёма работ.</li>
+            </ul>
+          </div>
         </div>
       </div>
     </div>

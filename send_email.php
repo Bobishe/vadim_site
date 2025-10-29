@@ -12,6 +12,7 @@ header('Content-Type: application/json; charset=utf-8');
 // Получение данных из формы
 $name = isset($_POST['name']) ? trim($_POST['name']) : '';
 $phone = isset($_POST['phone']) ? trim($_POST['phone']) : '';
+$email = isset($_POST['email']) ? trim($_POST['email']) : '';
 $message = isset($_POST['message']) ? trim($_POST['message']) : '';
 
 // Валидация данных
@@ -23,6 +24,12 @@ if (empty($name)) {
 
 if (empty($phone)) {
     $errors[] = 'Пожалуйста, укажите номер телефона';
+}
+
+if (empty($email)) {
+    $errors[] = 'Пожалуйста, укажите ваш email';
+} elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    $errors[] = 'Пожалуйста, укажите корректный email';
 }
 
 // Если есть ошибки, возвращаем их
@@ -42,6 +49,7 @@ $subject = 'Новая заявка с сайта';
 $email_body = "Новая заявка с сайта\n\n";
 $email_body .= "Имя: " . $name . "\n";
 $email_body .= "Телефон: " . $phone . "\n";
+$email_body .= "Email: " . $email . "\n";
 $email_body .= "Сообщение: " . ($message ? $message : 'Не указано') . "\n";
 $email_body .= "\n---\n";
 $email_body .= "Дата отправки: " . date('d.m.Y H:i:s') . "\n";
@@ -49,7 +57,7 @@ $email_body .= "IP адрес: " . $_SERVER['REMOTE_ADDR'] . "\n";
 
 // Настройка заголовков письма
 $headers = "From: noreply@" . $_SERVER['HTTP_HOST'] . "\r\n";
-$headers .= "Reply-To: noreply@" . $_SERVER['HTTP_HOST'] . "\r\n";
+$headers .= "Reply-To: " . $email . "\r\n";
 $headers .= "Content-Type: text/plain; charset=utf-8\r\n";
 $headers .= "X-Mailer: PHP/" . phpversion();
 
